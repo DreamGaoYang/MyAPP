@@ -8,42 +8,45 @@ import { hooks as metaMaskHooks, metaMask } from './connectors/metaMask'
 import MetaMaskCard from './components/connectorCards/MetaMaskCard'
 import { getName } from './utils'
 
+import Home from './views/Home'
+
 const connectors: [MetaMask, Web3ReactHooks][] = [
   [metaMask, metaMaskHooks]
 ]
 
-function Child() {
-  const { 
-    connector,
-    account,
-    chainId,
-    accounts,
-    provider,
-    isActive,
-    ENSNames,
-    hooks
-   } = useWeb3React()
-  console.log(`Priority Connector is: ${getName(connector)}`)
-  // connector: Connector;
+// function Child() {
+//   const {
+//     connector,
+//     account,
+//     chainId,
+//     accounts,
+//     provider,
+//     isActive,
+//     ENSNames,
+//     hooks
+//   } = useWeb3React()
+//   console.log(`Priority Connector is: ${getName(connector)}`)
+//   // connector: Connector;
 
-  // accounts: ReturnType<Web3ReactPriorityHooks['useSelectedAccounts']>;
-  // isActivating: ReturnType<Web3ReactPriorityHooks['useSelectedIsActivating']>;
-  // isActive: ReturnType<Web3ReactPriorityHooks['useSelectedIsActive']>;
-  // provider: T | undefined;
-  // ENSNames: ReturnType<Web3ReactPriorityHooks['useSelectedENSNames']>;
-  // ENSName: ReturnType<Web3ReactPriorityHooks['useSelectedENSName']>;
-  // hooks: ReturnType<typeof getPriorityConnector>;
-  // console.log(accounts,account,chainId)
-  console.log(provider,isActive,ENSNames,hooks)
-  return null
-}
+//   // accounts: ReturnType<Web3ReactPriorityHooks['useSelectedAccounts']>;
+//   // isActivating: ReturnType<Web3ReactPriorityHooks['useSelectedIsActivating']>;
+//   // isActive: ReturnType<Web3ReactPriorityHooks['useSelectedIsActive']>;
+//   // provider: T | undefined;
+//   // ENSNames: ReturnType<Web3ReactPriorityHooks['useSelectedENSNames']>;
+//   // ENSName: ReturnType<Web3ReactPriorityHooks['useSelectedENSName']>;
+//   // hooks: ReturnType<typeof getPriorityConnector>;
+//   // console.log(accounts,account,chainId)
+//   console.log(provider, isActive, ENSNames, hooks)
+//   return null
+// }
 
 export default function APP() {
   return (
     <Web3ReactProvider connectors={connectors}>
-      <Child />
+      {/* <Child /> */}
+      <Home />
       <MetaMaskCard />
-      <div className="App">
+      {/* <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -58,7 +61,7 @@ export default function APP() {
             Learn React
           </a>
         </header>
-      </div>
+      </div> */}
     </Web3ReactProvider>
   )
 }
